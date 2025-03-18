@@ -6,7 +6,7 @@
 #    By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 09:03:52 by jcheron           #+#    #+#              #
-#    Updated: 2025/03/18 12:17:41 by jcheron          ###   ########.fr        #
+#    Updated: 2025/03/18 12:42:48 by jcheron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ CXXFLAGS = -Wall -Werror -Wextra -Iincludes -std=c++98 -g
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Bureaucrat.cpp
-OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/Bureaucrat.o
+SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Bureaucrat.cpp $(SRC_DIR)/Form.cpp
+OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/Bureaucrat.o $(OBJ_DIR)/Form.o
 
-NAME = ex00
+NAME = ex01
 
 all: $(NAME)
 

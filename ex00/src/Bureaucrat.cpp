@@ -6,7 +6,7 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:01:25 by jcheron           #+#    #+#             */
-/*   Updated: 2025/03/18 11:56:07 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/03/21 08:55:52 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat &src): _name(src.getName() + "_copy")
 
 Bureaucrat::Bureaucrat(int grade): _name("default")
 {
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	std::cout
 		<< "Bureaucrat Constructor called for "
 		<< this->getName()
@@ -49,7 +53,6 @@ Bureaucrat::Bureaucrat(int grade): _name("default")
 		<< " grade!"
 		<< RESET
 		<< std::endl;
-		this->setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const std::string name): _name(name), _grade(150)
@@ -67,6 +70,10 @@ Bureaucrat::Bureaucrat(const std::string name): _name(name), _grade(150)
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	std::cout
 		<< BLUE
 		<< "Bureaucrat Constructor called for "
@@ -105,6 +112,8 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src)
 
 void	Bureaucrat::incrementGrade(void)
 {
+	if (this->_grade == 1)
+		throw Bureaucrat::GradeTooHighException();
 	std::cout
 		<< GREEN
 		<< "Trying to increment "
@@ -112,11 +121,13 @@ void	Bureaucrat::incrementGrade(void)
 		<< "'s grade!"
 		<< RESET
 		<< std::endl;
-		this->setGrade(this->_grade - 1);
+	this->setGrade(this->_grade - 1);
 }
 
 void	Bureaucrat::decrementGrade(void)
 {
+	if (this->_grade == 150)
+		throw Bureaucrat::GradeTooLowException();
 	std::cout
 		<< GREEN
 		<< "Trying to decrement "
@@ -124,7 +135,7 @@ void	Bureaucrat::decrementGrade(void)
 		<< "'s grade!"
 		<< RESET
 		<< std::endl;
-		this->setGrade(this->_grade + 1);
+	this->setGrade(this->_grade + 1);
 }
 
 const std::string	Bureaucrat::getName(void) const

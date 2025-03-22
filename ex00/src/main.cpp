@@ -6,100 +6,81 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:01:04 by jcheron           #+#    #+#             */
-/*   Updated: 2025/03/21 09:00:30 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/03/22 12:00:27 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-int main(void)
-{
+void	sectionTitle(const std::string &title) {
+	std::cout
+		<< std::endl
+		<< YELLOW
+		<< "============================== "
+		<< std::endl
+		<< title
+		<< std::endl
+		<< "============================== "
+		<< std::endl
+		<< RESET
+		<< std::endl
+		<< std::endl;
+}
+
+int main() {
+	sectionTitle("         Constructors");
+
 	try {
-		std::cout
-			<< MAGENTA
-			<< "Creating Bureaucrat with a valid grade\n"
-			<< RESET
-			<< std::endl;
-		Bureaucrat b1("Alice", 42);
-	} catch (std::exception &e) {
-		std::cerr
-			<< RED
-			<< "Error: "
-			<< e.what()
-			<< RESET
-			<< std::endl;
+		Bureaucrat	Toto("Toto", 1);
+		std::cout << Toto << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
 
 	try {
-		std::cout
-			<< MAGENTA
-			<< "\nCreating Bureaucrat with a too high grade\n"
-			<< RESET
-			<< std::endl;
-		Bureaucrat b2("Bob", 0);
-	} catch (std::exception &e) {
-		std::cerr
-			<< RED
-			<< "Error: "
-			<< e.what()
-			<< RESET
-			<< std::endl;
+		Bureaucrat Titi("Titi", -42);
+		std::cout << Titi << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
 
 	try {
-		std::cout
-			<< MAGENTA
-			<< "\nCreating Bureaucrat with a too low grade\n"
-			<< RESET
-			<< std::endl;
-		Bureaucrat b3("Charlie", 151);
-	} catch (std::exception &e) {
-		std::cerr
-			<< RED
-			<< "Error: "
-			<< e.what()
-			<< RESET
-			<< std::endl;
+		Bureaucrat	Tutu("Tutu", 4242);
+		std::cout << Tutu << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	sectionTitle("    Increment / Decrement");
+
+	try {
+		Bureaucrat	Toto("Toto", 10);
+		std::cout << Toto << std::endl;
+		Toto.incrementGrade(8);
+		std::cout << Toto << std::endl;
+		Toto.incrementGrade();
+		std::cout << Toto << std::endl;
+		Toto.incrementGrade();
+		std::cout << Toto << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
 
 	try {
-		std::cout
-			<< MAGENTA
-			<< "\nTesting grade increment\n"
-			<< RESET
-			<< std::endl;
-		Bureaucrat b4("David", 2);
-		std::cout << &b4 << std::endl;
-		b4.incrementGrade();
-		std::cout << &b4 << std::endl;
-		b4.incrementGrade();
-	} catch (std::exception &e) {
-		std::cerr
-			<< RED
-			<< "Error: "
-			<< e.what()
-			<< RESET
-			<< std::endl;
+		Bureaucrat	Toto("Toto", 141);
+		std::cout << Toto << std::endl;
+		Toto.decrementGrade(8);
+		std::cout << Toto << std::endl;
+		Toto.decrementGrade();
+		std::cout << Toto << std::endl;
+		Toto.decrementGrade();
+		std::cout << Toto << std::endl;
 	}
-
-	try {
-		std::cout
-			<< MAGENTA
-			<< "\nTesting grade decrement\n"
-			<< RESET
-			<< std::endl;
-		Bureaucrat b5("Eve", 149);
-		std::cout << &b5 << std::endl;
-		b5.decrementGrade();
-		std::cout << &b5 << std::endl;
-		b5.decrementGrade();
-	} catch (std::exception &e) {
-		std::cerr
-			<< RED
-			<< "Error: "
-			<< e.what()
-			<< RESET
-			<< std::endl;
+	catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
 	}
-	return 0;
 }

@@ -6,12 +6,14 @@
 /*   By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 12:13:08 by jcheron           #+#    #+#             */
-/*   Updated: 2025/03/22 14:09:30 by jcheron          ###   ########.fr       */
+/*   Updated: 2025/03/24 07:24:53 by jcheron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/ShrubberyCreationForm.hpp"
 
 void	sectionTitle(const std::string &title) {
 	std::cout
@@ -48,6 +50,16 @@ int main() {
 	Bureaucrat	toto("Toto", 42);
 	std::cout << toto << std::endl;
 	try {
+		{
+			sectionTitle("robotomy request form");
+			RobotomyRequestForm	form("jcheron");
+			testForm(boss, form);
+		}
+		{
+			sectionTitle("shrubbery creation form");
+			ShrubberyCreationForm	form("jcheron");
+			testForm(boss, form);
+		}
 		{
 			sectionTitle("presidential pardon form");
 			PresidentialPardonForm	form("jcheron");

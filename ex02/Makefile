@@ -6,7 +6,7 @@
 #    By: jcheron <jcheron@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 09:03:52 by jcheron           #+#    #+#              #
-#    Updated: 2025/03/22 12:36:34 by jcheron          ###   ########.fr        #
+#    Updated: 2025/03/24 09:20:21 by jcheron          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ OBJ_DIR = obj
 SRC = $(SRC_DIR)/main.cpp $(SRC_DIR)/Bureaucrat.cpp $(SRC_DIR)/Form.cpp $(SRC_DIR)/ShrubberyCreationForm.cpp $(SRC_DIR)/RobotomyRequestForm.cpp $(SRC_DIR)/PresidentialPardonForm.cpp
 OBJ = $(OBJ_DIR)/main.o $(OBJ_DIR)/Bureaucrat.o $(OBJ_DIR)/Form.o $(OBJ_DIR)/ShrubberyCreationForm.o $(OBJ_DIR)/RobotomyRequestForm.o $(OBJ_DIR)/PresidentialPardonForm.o
 
-NAME = ex01
+NAME = ex02
 
 all: $(NAME)
 
